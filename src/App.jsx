@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // ─── PIN ──────────────────────────────────────────────────────────────────────
-const CORRECT_PIN = "1234"; // ← CHANGE THIS to your preferred PIN
+const CORRECT_PIN = "1793"; // ← CHANGE THIS to your preferred PIN
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
 const GREEN = "#2d6a4f";
