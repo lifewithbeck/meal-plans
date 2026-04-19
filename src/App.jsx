@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Landing.jsx";
 import S9S10 from "./S9S10.jsx";
 import S11S12 from "./S11S12.jsx";
+import S12 from "./S12.jsx";
 
 // ─── PIN ──────────────────────────────────────────────────────────────────────
 const CORRECT_PIN = "1793";
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/"       element={<Landing />} />
         <Route path="/s9-s10"  element={<S9S10 />}  />
         <Route path="/s11-s12" element={<S11S12 />} />
+        <Route path="/s12"     element={<S12 />}    />
       </Routes>
     </BrowserRouter>
   );

@@ -17,6 +17,14 @@ const WEEKS = [
     emoji: "🍝",
     meals: ["Avocado toast & somon", "Lasagna healthy", "Tacos burger", "Paste carbonara", "Steak vita"],
   },
+  {
+    route: "/s12",
+    label: "S12",
+    dates: "16–22 Martie 2026",
+    emoji: "🥩",
+    meals: ["Avocado toast + ou posat", "Lasagna cu cottage cheese", "Pastrav crocant", "Paste carbonara", "Steak vita"],
+    description: "Plan actualizat cu whey protein & macro-uri precise",
+  },
 ];
 
 export default function Landing() {
@@ -91,7 +99,10 @@ export default function Landing() {
               </div>
             </div>
 
-            <div style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>📅 {w.dates}</div>
+            <div style={{ fontSize: 12, color: "#888", marginBottom: w.description ? 6 : 10 }}>📅 {w.dates}</div>
+            {w.description && (
+              <div style={{ fontSize: 11, color: "#5a9a78", fontStyle: "italic", marginBottom: 10 }}>{w.description}</div>
+            )}
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
               {w.meals.map((m, i) => (
