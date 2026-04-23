@@ -6,7 +6,7 @@ import S11S12 from "./S11S12.jsx";
 import S12 from "./S12.jsx";
 
 // ─── PIN ──────────────────────────────────────────────────────────────────────
-const CORRECT_PIN = "1793";
+const CORRECT_PIN = "6969";
 const GREEN = "#2d6a4f";
 
 function PinScreen({ onUnlock }) {
