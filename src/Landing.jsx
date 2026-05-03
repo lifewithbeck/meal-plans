@@ -25,6 +25,14 @@ const WEEKS = [
     meals: ["Avocado toast + ou posat", "Lasagna cu cottage cheese", "Pastrav crocant", "Paste carbonara", "Steak vita"],
     description: "Plan actualizat cu whey protein & macro-uri precise",
   },
+  {
+    route: "/w15",
+    label: "W15",
+    dates: "05–11 Mai 2026",
+    emoji: "🫙",
+    meals: ["Oua sourdough", "Quesadilla pui", "Tikka masala", "Beef lettuce wraps", "Pastrav cu morcovi"],
+    description: "Faza foliculara — fereastra ideala pentru deficit si performanta la antrenament",
+  },
 ];
 
 export default function Landing() {
