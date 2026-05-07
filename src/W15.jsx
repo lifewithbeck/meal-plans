@@ -564,7 +564,7 @@ export default function W15() {
 
       <div style={{textAlign:"center", marginBottom:12}}>
         <div style={{fontSize:21, fontWeight:"bold", color:GREEN}}>💪 34FIT Meal Plan</div>
-        <div style={{fontSize:12, color:"#888", marginTop:2}}>W15 &nbsp;|&nbsp; 5–11 Mai 2026</div>
+        <div style={{fontSize:12, color:"#888", marginTop:2}}>W14 &nbsp;|&nbsp; 5–11 Mai 2026</div>
         <div style={{fontSize:11, color:"#aaa"}}>Nicoleta &amp; Andrei</div>
       </div>
 
@@ -576,7 +576,7 @@ export default function W15() {
         <div style={{border:"2px solid", borderColor:mc.border, borderRadius:12, overflow:"hidden", boxShadow:"0 2px 8px rgba(0,0,0,0.06)"}}>
           <div style={{background:GREEN, color:"#fff", padding:"11px 15px", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
             <div>
-              <div style={{fontSize:10, opacity:0.7, marginBottom:1}}>{meal.meal} — {day.label} {day.dates} — W15</div>
+              <div style={{fontSize:10, opacity:0.7, marginBottom:1}}>{meal.meal} — {day.label} {day.dates} — W14</div>
               <div style={{fontSize:15, fontWeight:"bold"}}>{meal.name}</div>
             </div>
             <button

@@ -27,7 +27,7 @@ const WEEKS = [
   },
   {
     route: "/w15",
-    label: "W15",
+    label: "W14",
     dates: "05–11 Mai 2026",
     emoji: "🫙",
     meals: ["Oua sourdough", "Quesadilla pui", "Tikka masala", "Beef lettuce wraps", "Pastrav cu morcovi"],
