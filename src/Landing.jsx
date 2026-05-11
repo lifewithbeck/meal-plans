@@ -33,6 +33,14 @@ const WEEKS = [
     meals: ["Oua sourdough", "Quesadilla pui", "Tikka masala", "Beef lettuce wraps", "Pastrav cu morcovi"],
     description: "Faza foliculara — fereastra ideala pentru deficit si performanta la antrenament",
   },
+  {
+    route: "/w15b",
+    label: "W15",
+    dates: "11–17 Mai 2026",
+    emoji: "🍣",
+    meals: ["Mango overnight oats", "Pui grill + cartofi dulci", "Cod la cuptor", "Creveti curry", "Somon teriyaki"],
+    description: "Nicoleta 1550 kcal / 136g P · Clearly Whey Vanilla · Tocanita porc pair-cook",
+  },
 ];
 
 export default function Landing() {
