@@ -71,6 +71,40 @@ export default function Landing() {
         width: "100%",
         maxWidth: 480,
       }}>
+        {/* Search button */}
+        <button
+          onClick={() => navigate("/search")}
+          style={{
+            width: "100%",
+            background: GREEN,
+            color: "#fff",
+            border: "none",
+            borderRadius: 14,
+            padding: "13px 20px",
+            fontSize: 14,
+            fontWeight: "bold",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            marginBottom: 20,
+            boxShadow: "0 2px 12px rgba(45,106,79,0.25)",
+            transition: "transform 0.12s, box-shadow 0.12s",
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.transform = "translateY(-1px)";
+            e.currentTarget.style.boxShadow = "0 5px 18px rgba(45,106,79,0.35)";
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "0 2px 12px rgba(45,106,79,0.25)";
+          }}
+        >
+          <span style={{ fontSize: 18 }}>🔍</span>
+          Caută o rețetă
+        </button>
+
         <div style={{ fontSize: 12, fontWeight: "bold", color: "#aaa", textTransform: "uppercase", letterSpacing: 1, marginBottom: 2 }}>
           Alege săptămâna
         </div>

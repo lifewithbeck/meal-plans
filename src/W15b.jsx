@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
 const GREEN = "#2d6a4f";
@@ -20,19 +20,18 @@ const MEALS = {
     meal: "Masa 1", name: "Mango Sticky Rice Overnight Oats",
     ing: [
       ["Fulgi de ovaz", "40g", "50g"],
-      ["Seminte chia", "9g", "11g"],
-      ["Lapte de cocos light", "55ml", "65ml"],
-      ["Lapte", "80ml", "100ml"],
+      ["Seminte chia", "5g", "5g"],
+      ["Lapte de cocos light", "40ml", "50ml"],
+      ["Lapte 1.5%", "80ml", "100ml"],
       ["Clearly Whey Vanilla (1 masura)", "30g", "30g"],
-      ["Erytrytol", "7g", "8g"],
-      ["Mango proaspat sau congelat", "90g", "110g"],
+      ["Mango proaspat sau congelat", "80g", "100g"],
       ["Zeama de lime", "7ml", "8ml"],
-      ["Fulgi de cocos prajiti", "7g", "9g"],
+      ["Fulgi de cocos prajiti", "5g", "6g"],
     ],
-    tot: { n: { p:"26g", c:"40g", f:"12g", k:"330" }, a: { p:"34g", c:"52g", f:"14g", k:"420" } },
+    tot: { n: { p:"33g", c:"47g", f:"16g", k:"465" }, a: { p:"35g", c:"57g", f:"19g", k:"544" } },
     steps: [
       "Amesteca fulgii de ovaz + chia + laptele de cocos + laptele intr-un borcan. Amesteca bine.",
-      "Adauga Clearly Whey si erytrytolul. Amesteca pana nu mai sunt cocoloase.",
+      "Adauga Clearly Whey. Amesteca pana nu mai sunt cocoloase.",
       "Pune la frigider minim 6 ore (pregateste duminica seara).",
       "Dimineata: adauga deasupra mango taiat cubulete, zeama de lime si fulgii de cocos prajiti.",
     ],
@@ -51,7 +50,7 @@ const MEALS = {
       ["Ulei de masline", "8ml", "8ml"],
       ["Sare, piper, paprika afumata", "dupa gust", "dupa gust"],
     ],
-    tot: { n: { p:"40g", c:"32g", f:"14g", k:"420" }, a: { p:"54g", c:"34g", f:"14g", k:"510" } },
+    tot: { n: { p:"37g", c:"41g", f:"13g", k:"434" }, a: { p:"49g", c:"45g", f:"14g", k:"506" } },
     steps: [
       "Preincalzeste cuptorul la 200C. Taie cartofii dulci in pene, unge cu ulei de masline, sare si paprika afumata.",
       "Coace 25 minute pana se auresc pe margini.",
@@ -64,52 +63,51 @@ const MEALS = {
   },
 
   codCuptor: {
-    meal: "Masa 3", name: "Cod la cuptor + salsa verde + broccoli + morcov",
+    meal: "Masa 3", name: "Cod la cuptor + sos yogurt usturoi-lamaie-marar + broccoli + morcov",
     ing: [
       ["File de cod", "160g", "220g"],
       ["Broccoli buchete", "100g", "100g"],
       ["Morcov (feliat)", "80g", "80g"],
       ["Rosii cherry", "60g", "60g"],
       ["Ulei de masline", "8ml", "8ml"],
-      ["Patrunjel proaspat", "20g", "20g"],
-      ["Capere", "10g", "10g"],
+      ["Iaurt grecesc 2%", "60g", "60g"],
       ["Usturoi", "1 catel", "1 catel"],
-      ["Lamaie", "1/2 buc", "1/2 buc"],
+      ["Zeama de lamaie", "10ml", "10ml"],
+      ["Marar proaspat", "8g", "8g"],
     ],
-    tot: { n: { p:"36g", c:"12g", f:"14g", k:"340" }, a: { p:"48g", c:"12g", f:"14g", k:"420" } },
+    tot: { n: { p:"34g", c:"19g", f:"10g", k:"289" }, a: { p:"45g", c:"19g", f:"10g", k:"338" } },
     steps: [
       "Preincalzeste cuptorul la 200C.",
       "Tamponeza codul cu servetele de bucatarie. Condimenteaza cu sare, piper, coaja de lamaie si ulei de masline. Pune in tava.",
-      "Adauga buchetele de broccoli si morcovul feliat in jurul pestelui. Stropeste cu ulei de masline, condimenteaza cu sare si piper.",
+      "Adauga buchetele de broccoli, morcovul feliat si rosiile cherry in jurul pestelui. Stropeste cu ulei de masline, condimenteaza cu sare si piper.",
       "Coace 18-20 minute pana codul se sfarama usor la apasarea cu o furculita.",
-      "Salsa verde: mixeaza patrunjel + capere + 1 catel usturoi + zeama de lamaie + ulei de masline + un praf de sare. Pastreaza textura — nu over-blenda. Daca n-ai blender, toaca totul fin cu cutitul.",
-      "Pune salsa verde deasupra codului. Serveste imediat.",
+      "Sos de iaurt: iaurt grecesc + 1 catel usturoi tocat marunt + zeama de lamaie + marar proaspat tocat + un praf de sare. Subtieaza cu 1-2 lingurite de apa daca e prea dens.",
+      "Toarna sosul de iaurt rece peste codul fierbinte. Serveste imediat.",
     ],
-    tips: "Salsa verde trebuie sa aiba textura granulara, nu sa fie un piure. Gust dupa amestecare — adauga mai multa lamaie sau sare daca e nevoie.",
+    tips: "Sosul de iaurt rece pe pestele fierbinte creeaza un contrast placut de temperatura. Gust dupa preparare — adauga mai multa lamaie sau marar dupa preferinta.",
   },
 
   snickersOvaz: {
     meal: "Masa 1", name: "Snickers Budinca de Ovaz High Protein",
     ing: [
-      ["Fulgi ovaz integral", "60g", "75g"],
+      ["Fulgi ovaz integral", "35g", "45g"],
+      ["Lapte 1.5%", "48ml", "62ml"],
+      ["Iaurt grecesc 2%", "80g", "100g"],
       ["Clearly Whey Vanilla (1 masura)", "30g", "30g"],
-      ["Lapte 1.5%", "80ml", "100ml"],
-      ["Iaurt grecesc 2%", "150g", "150g"],
-      ["Unt de arahide", "10g", "10g"],
-      ["Ciocolata neagra 70%", "10g", "10g"],
-      ["Esenta de vanilie", "5g", "5g"],
+      ["Unt de arahide", "6g", "8g"],
+      ["Ciocolata neagra 70%", "6g", "8g"],
+      ["Arahide zdrobite (topping)", "4g", "5g"],
       ["Eritritol", "10g", "10g"],
-      ["Ulei de cocos", "2g", "2g"],
-      ["Arahide zdrobite (topping)", "5g", "5g"],
+      ["Esenta de vanilie", "5g", "5g"],
     ],
-    tot: { n: { p:"34g", c:"42g", f:"16g", k:"420" }, a: { p:"38g", c:"54g", f:"17g", k:"490" } },
+    tot: { n: { p:"36g", c:"34g", f:"14g", k:"422" }, a: { p:"40g", c:"43g", f:"18g", k:"511" } },
     steps: [
-      "Intr-un bol amesteca fulgii de ovaz + Clearly Whey + lapte + esenta de vanilie + eritritol + un praf de sare.",
-      "Amesteca bine pana nu mai sunt cocoloase. Adauga mai mult lapte daca e prea dens.",
-      "Amesteca iaurtul grecesc cu untul de arahide — intinde uniform deasupra bazei de ovaz.",
-      "Topeste ciocolata neagra cu uleiul de cocos la microunde 30 secunde. Stropeste deasupra stratului de iaurt.",
+      "Intr-un bol amesteca fulgii de ovaz + lapte + Clearly Whey + eritritol + esenta de vanilie. Amesteca bine pana e neted.",
+      "Intr-un bol separat amesteca iaurtul grecesc cu untul de arahide. Intinde uniform deasupra bazei de ovaz.",
+      "Topeste ciocolata neagra la microunde 20-25 secunde. Stropeste deasupra stratului de iaurt.",
       "Adauga arahidele zdrobite deasupra.",
       "Pune la frigider peste noapte sau minim 2 ore (pregateste luni seara).",
+      "Nota: raportul ovaz:lapte este fix — nu adauga lapte extra sau textura devine prea lichida.",
     ],
     tips: "Ciocolata topita se solidifica la rece si creeaza efectul de crunch Snickers — taie in ea cu lingurita la servire. Se poate manca direct din borcan.",
   },
@@ -121,19 +119,23 @@ const MEALS = {
       ["Cartofi", "180g", "200g"],
       ["Ceapa", "60g", "60g"],
       ["Ceapa verde", "30g", "30g"],
+      ["Rosii proaspete tocate", "150g", "150g"],
+      ["Pasta de rosii dublu concentrata", "15g", "15g"],
       ["Usturoi", "2 catei", "2 catei"],
-      ["Rosii tocate", "80g", "80g"],
       ["Ulei de floarea soarelui", "8ml", "8ml"],
-      ["Paprika afumata, chimen, foi de dafin, patrunjel", "dupa gust", "dupa gust"],
+      ["Boia afumata, chimen, foi de dafin, patrunjel", "dupa gust", "dupa gust"],
     ],
-    tot: { n: { p:"36g", c:"28g", f:"14g", k:"415" }, a: { p:"50g", c:"34g", f:"16g", k:"530" } },
+    tot: { n: { p:"36g", c:"41g", f:"19g", k:"475" }, a: { p:"48g", c:"45g", f:"23g", k:"577" } },
     steps: [
-      "Taie hamlappen in cubulete de 3cm. Condimenteaza cu sare, piper, paprika afumata.",
+      "Taie hamlappen in cubulete de 3cm. Condimenteaza cu sare, piper, boia afumata.",
       "Incalzeste uleiul intr-o oala cu fund gros la foc mare. Rumeneste porcul pe toate partile 3-4 minute. Pune deoparte.",
       "In aceeasi oala caleste ceapa tocata + ceapa verde 3 minute pana se moaie.",
-      "Adauga usturoiul tocat, gateste 1 minut. Adauga rosiile tocate, paprika afumata, chimenul si foile de dafin.",
-      "Reintoarce porcul. Adauga 200ml apa sau supa. Acopera si fierbe la foc mic 25 minute.",
-      "Adauga cartofii taiati cubulete. Gateste descoperit 15 minute pana cartofii sunt moi si sosul se ingroasa.",
+      "Adauga usturoiul tocat, gateste 1 minut. Adauga pasta de rosii 15g — gateste 1 minut amestecand pana se caramelizeaza usor. Aceasta elimina aciditatea si adanceste aroma.",
+      "Adauga rosiile proaspete tocate, boia afumata, chimenul si foile de dafin. Amesteca.",
+      "Reintoarce porcul. Adauga 150ml apa sau supa. Acopera si fierbe la foc mic 25 minute.",
+      "Adauga cartofii taiati cubulete. Adauga inca 100ml apa. Pune capacul pe jumatate — aceasta evapora excesul de lichid in timp ce cartofii se fierb.",
+      "Gateste 35 minute la foc mediu-mic, verificand la fiecare 10 minute. Adauga stropi mici de apa doar daca e complet uscat.",
+      "Cand cartofii sunt fierti (furculita intra usor), scoate capacul complet si lasa sa fiarba 5 minute pentru a ingrosa sosul.",
       "Termina cu patrunjel proaspat. Raceste complet inainte de a refrigera portia de joi.",
     ],
     tips: "Gateste dublu marti — portia de joi si weekend se reincalzeste in oala la foc mediu-mic cu un strop de apa, acoperit, 8-10 minute. Nu fierbe puternic.",
@@ -149,7 +151,7 @@ const MEALS = {
       ["Ulei de masline", "5ml", "5ml"],
       ["Sare, piper", "dupa gust", "dupa gust"],
     ],
-    tot: { n: { p:"26g", c:"28g", f:"16g", k:"370" }, a: { p:"32g", c:"28g", f:"20g", k:"440" } },
+    tot: { n: { p:"29g", c:"43g", f:"24g", k:"499" }, a: { p:"35g", c:"44g", f:"30g", k:"576" } },
     steps: [
       "Prajeste painea sourdough pana e aurie.",
       "Ofileste spanacul + ceapa verde in ulei de masline la foc mediu 2 minute.",
@@ -163,21 +165,21 @@ const MEALS = {
   salataHalloumi: {
     meal: "Masa 2", name: "Salata rucola + halloumi + naut crocant + ceapa verde",
     ing: [
-      ["Halloumi", "80g", "80g"],
-      ["Naut la conserva (scurs, clatit)", "80g", "100g"],
+      ["Halloumi", "60g", "60g"],
+      ["Naut la conserva (scurs, clatit)", "70g", "90g"],
       ["Rucola", "60g", "60g"],
       ["Ceapa verde", "30g", "30g"],
       ["Rosii cherry", "60g", "60g"],
-      ["Ulei de masline", "8ml", "8ml"],
+      ["Ulei de masline", "5ml", "5ml"],
       ["Zeama de lamaie", "10ml", "10ml"],
-      ["Paprika afumata, chimion", "dupa gust", "dupa gust"],
+      ["Boia afumata, chimion", "dupa gust", "dupa gust"],
       ["[Andrei] Piept de pui la gratar", "—", "80g"],
     ],
-    tot: { n: { p:"24g", c:"18g", f:"22g", k:"380" }, a: { p:"38g", c:"20g", f:"24g", k:"460" } },
+    tot: { n: { p:"22g", c:"26g", f:"22g", k:"384" }, a: { p:"42g", c:"32g", f:"25g", k:"505" } },
     steps: [
       "Scurge si clateste nautul. Usuca foarte bine cu servetele de hartie — umiditatea impiedica crocantul.",
-      "Unge nautul cu ulei de masline, paprika afumata, chimion si sare.",
-      "Prajeste la air fryer sau tigaie la foc mare 8-10 minute pana e auriu si crocant. Fa dublu pentru joi.",
+      "Unge nautul cu ulei de masline, boia afumata, chimion si sare. Fa dublu pentru joi.",
+      "Prajeste la air fryer sau tigaie la foc mare 8-10 minute pana e auriu si crocant.",
       "Feliaza halloumiul la 1cm grosime. Prajeste uscat (fara ulei) la foc mare 2 minute pe fiecare parte pana are crusta aurie.",
       "Baza: rucola + ceapa verde feliata + rosii cherry.",
       "Adauga halloumiul cald si nautul crocant deasupra.",
@@ -191,25 +193,25 @@ const MEALS = {
     ing: [
       ["Creveti cruzi curatati", "160g", "220g"],
       ["Legume cambodgiene pentru stir-fry", "150g", "150g"],
-      ["Lapte de cocos light", "100ml", "100ml"],
-      ["Pasta Thai curry rosu", "15g", "15g"],
+      ["Lapte de cocos light", "70ml", "70ml"],
+      ["Pasta Thai curry rosu", "12g", "12g"],
       ["Usturoi (tocat marunt)", "2 catei", "2 catei"],
       ["Ghimbir proaspat ras", "1 lingurita", "1 lingurita"],
-      ["Orez basmati crud", "60g", "75g"],
+      ["Orez basmati crud", "45g", "60g"],
       ["Ulei de masline", "5ml", "5ml"],
       ["Lamaie", "1/2 buc", "1/2 buc"],
     ],
-    tot: { n: { p:"36g", c:"42g", f:"14g", k:"430" }, a: { p:"50g", c:"50g", f:"14g", k:"530" } },
+    tot: { n: { p:"36g", c:"48g", f:"20g", k:"518" }, a: { p:"48g", c:"60g", f:"20g", k:"623" } },
     steps: [
       "Gateste orezul basmati. Pune deoparte.",
       "Incalzeste uleiul la foc mediu-mare. Adauga usturoiul tocat + ghimbirul ras. Amesteca 30 secunde.",
       "Adauga pasta de curry Thai. Amesteca 1 minut pana devine parfumata.",
-      "Toarna laptele de cocos light. Fierbe la foc mic 2 minute.",
-      "Adauga legumele cambodgiene. Prajeste amestecand 3 minute — pastreaza germenii de soia usor crocanti.",
+      "Adauga legumele cambodgiene. Prajeste amestecand 3 minute la foc mare — pastreaza germenii de soia usor crocanti.",
       "Adauga crevetii cruzi. Gateste 3-4 minute pana devin roz si se ruleaza. Nu over-gati.",
+      "Toarna laptele de cocos. Amesteca 60 de secunde doar. Ia de pe foc imediat.",
       "Stoarce lamaia. Gust, ajusteaza sarea. Serveste peste orezul basmati.",
     ],
-    tips: "Crevetii se gatesc ultra-rapid — 3-4 minute maxim. Cand sunt complet roz si rulati sunt gata. Inca un minut si devin cauciucosi.",
+    tips: "IMPORTANT: laptele de cocos se adauga ULTIMUL — doar 60 de secunde, nu se fierbe. Crevetii se gatesc ultra-rapid — 3-4 minute maxim. Cand sunt complet roz si rulati sunt gata.",
   },
 
   omletaRosii: {
@@ -222,7 +224,7 @@ const MEALS = {
       ["Ulei de masline", "5ml", "5ml"],
       ["Sare, piper", "dupa gust", "dupa gust"],
     ],
-    tot: { n: { p:"22g", c:"6g", f:"18g", k:"280" }, a: { p:"28g", c:"6g", f:"22g", k:"350" } },
+    tot: { n: { p:"23g", c:"9g", f:"22g", k:"314" }, a: { p:"29g", c:"10g", f:"28g", k:"392" } },
     steps: [
       "Taie rosiile cherry in jumatate. Prajeste 2-3 minute intr-o tigaie uscata sau serveste proaspete pe lateral.",
       "Ofileste spanacul + ceapa verde in ulei de masline 2 minute.",
@@ -235,16 +237,16 @@ const MEALS = {
   pastePui: {
     meal: "Masa 2", name: "Paste pui + ciuperci + sos light",
     ing: [
-      ["Paste integrale (greutate uscata)", "65g", "65g"],
+      ["Paste integrale (greutate uscata)", "55g", "55g"],
       ["Piept de pui", "130g", "180g"],
       ["Ciuperci champignon (feliate)", "100g", "100g"],
       ["Spanac proaspat", "40g", "40g"],
       ["Usturoi", "2 catei", "2 catei"],
-      ["Parmezan ras", "15g", "15g"],
-      ["Ulei de masline", "8ml", "8ml"],
+      ["Parmezan ras", "12g", "12g"],
+      ["Ulei de masline", "6ml", "6ml"],
       ["Zeama de lamaie", "10ml", "10ml"],
     ],
-    tot: { n: { p:"42g", c:"38g", f:"14g", k:"430" }, a: { p:"54g", c:"38g", f:"14g", k:"510" } },
+    tot: { n: { p:"46g", c:"43g", f:"14g", k:"470" }, a: { p:"57g", c:"43g", f:"15g", k:"525" } },
     steps: [
       "Fierbe pastele al dente. Rezerva 50ml apa de paste inainte de scurgere — nu o arunca.",
       "Condimenteaza puiul cu sare, piper si usturoi. Prajeste sau gratiaza, lasa sa se odihneasca, feliaza subtire.",
@@ -260,20 +262,20 @@ const MEALS = {
   somonTeriyaki: {
     meal: "Masa 3", name: "Somon teriyaki + orez basmati + broccoli",
     ing: [
-      ["File de somon", "150g", "200g"],
-      ["Orez basmati crud", "55g", "70g"],
+      ["File de somon", "130g", "180g"],
+      ["Orez basmati crud", "40g", "55g"],
       ["Broccoli buchete", "120g", "120g"],
-      ["Tamari sau sos de soia", "15ml", "15ml"],
-      ["Miere", "8g", "8g"],
+      ["Tamari sau sos de soia", "12ml", "12ml"],
+      ["Miere", "5g", "5g"],
       ["Usturoi (tocat marunt)", "1 catel", "1 catel"],
       ["Ghimbir proaspat ras", "1 lingurita", "1 lingurita"],
-      ["Seminte de susan", "5g", "5g"],
+      ["Seminte de susan", "4g", "4g"],
       ["Ceapa verde (pentru servire)", "15g", "15g"],
     ],
-    tot: { n: { p:"36g", c:"38g", f:"16g", k:"430" }, a: { p:"48g", c:"46g", f:"20g", k:"540" } },
+    tot: { n: { p:"34g", c:"46g", f:"21g", k:"499" }, a: { p:"45g", c:"58g", f:"28g", k:"656" } },
     steps: [
       "Gateste orezul basmati. Aburi sau coace broccoli 15 minute la 200C cu sare si un fir de ulei.",
-      "Sos teriyaki: amesteca tamari 15ml + miere 8g + usturoi tocat + ghimbir ras + apa 20ml. Pune deoparte.",
+      "Sos teriyaki: amesteca tamari 12ml + miere 5g + usturoi tocat + ghimbir ras + apa 20ml. Pune deoparte.",
       "Tamponeza somonul cu servetele de bucatarie. Condimenteaza cu sare si piper.",
       "Prajeste somonul cu pielea in sus 3 minute. Intoarce. Toarna sosul teriyaki deasupra.",
       "Gateste inca 3-4 minute, ungand somonul cu sos pana se caramelizeaza si e just cooked.",
@@ -289,7 +291,7 @@ const MEALS = {
       ["Fructe de padure mix", "80g", "80g"],
       ["Clearly Whey Vanilla (1 masura)", "30g", "30g"],
     ],
-    tot: { n: { p:"37g", c:"17g", f:"8g", k:"280" }, a: { p:"37g", c:"17g", f:"8g", k:"280" } },
+    tot: { n: { p:"37g", c:"16g", f:"9g", k:"296" }, a: { p:"37g", c:"16g", f:"9g", k:"296" } },
     steps: [
       "Amesteca Clearly Whey in iaurt pana e complet neted.",
       "Adauga fructele de padure deasupra.",
@@ -303,7 +305,7 @@ const MEALS = {
       ["Iaurt grecesc 5%", "150g", "150g"],
       ["Fructe de padure mix", "80g", "80g"],
     ],
-    tot: { n: { p:"14g", c:"16g", f:"7g", k:"185" }, a: { p:"14g", c:"16g", f:"7g", k:"185" } },
+    tot: { n: { p:"13g", c:"16g", f:"7g", k:"~180" }, a: { p:"13g", c:"16g", f:"7g", k:"~180" } },
     steps: [
       "Pune iaurtul intr-un bol.",
       "Adauga fructele de padure si amesteca.",
@@ -324,7 +326,7 @@ const MEALS = {
       "Evita oatele dulci — deja 2 portii cu oat in aceasta saptamana.",
       "Pre-logheaza micul dejun inainte de masa la restaurant pentru a te asigura ca esti in target.",
     ],
-    tips: "Weekend-ul este flexibil — micul dejun usorul compenseaza masa de la restaurant. Prioritate: proteina din oua, fara glucide suplimentare la micul dejun.",
+    tips: "Weekend-ul este flexibil — micul dejun usor compenseaza masa de la restaurant. Prioritate: proteina din oua, fara glucide suplimentare la micul dejun.",
   },
 
   restaurant: {
@@ -347,19 +349,19 @@ const MEALS = {
 
 // ─── SCHEDULE ─────────────────────────────────────────────────────────────────
 const DAYS = [
-  { label:"Luni",    dates:"11 Mai",       meals:["mangoOats",      "puiGrillCartofi", "codCuptor",      "snackWhey"]    },
-  { label:"Marti",   dates:"12 Mai",       meals:["snickersOvaz",   "puiGrillCartofi", "tocanitaPorc",   "snackWhey"]    },
-  { label:"Miercuri",dates:"13 Mai",       meals:["omletaSourdough","salataHalloumi",  "crevetiCurry",   "snackWhey"]    },
-  { label:"Joi",     dates:"14 Mai",       meals:["omletaRosii",    "salataHalloumi",  "tocanitaPorc",   "snackWhey"]    },
-  { label:"Vineri",  dates:"15 Mai",       meals:["omletaRosii",    "pastePui",        "somonTeriyaki",  "snackWhey"]    },
-  { label:"Weekend", dates:"16–17 Mai",    meals:["weekendBrunch",  "restaurant",      "tocanitaPorc",   "snackNoWhey"]  },
+  { label:"Luni",     dates:"11 Mai",    meals:["mangoOats",      "puiGrillCartofi", "codCuptor",      "snackWhey"]   },
+  { label:"Marti",    dates:"12 Mai",    meals:["snickersOvaz",   "puiGrillCartofi", "tocanitaPorc",   "snackWhey"]   },
+  { label:"Miercuri", dates:"13 Mai",    meals:["omletaSourdough","salataHalloumi",  "crevetiCurry",   "snackWhey"]   },
+  { label:"Joi",      dates:"14 Mai",    meals:["omletaRosii",    "salataHalloumi",  "tocanitaPorc",   "snackWhey"]   },
+  { label:"Vineri",   dates:"15 Mai",    meals:["omletaRosii",    "pastePui",        "somonTeriyaki",  "snackWhey"]   },
+  { label:"Weekend",  dates:"16–17 Mai", meals:["weekendBrunch",  "restaurant",      "tocanitaPorc",   "snackNoWhey"] },
 ];
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function totalKcal(mealKeys, person) {
   return mealKeys.reduce((sum, k) => {
     const m = MEALS[k];
-    const raw = m ? m.tot[person].k.toString().replace("~","") : "0";
+    const raw = m ? m.tot[person].k.toString().replace("~", "") : "0";
     return sum + (parseFloat(raw) || 0);
   }, 0);
 }
@@ -545,11 +547,12 @@ function RecipePanel({ meal }) {
   );
 }
 
-// ─── W15 v2 ROUTE ─────────────────────────────────────────────────────────────
+// ─── W15 ROUTE ────────────────────────────────────────────────────────────────
 export default function W15b() {
-  const navigate = useNavigate();
-  const [dayIdx,     setDayIdx]     = useState(0);
-  const [mealIdx,    setMealIdx]    = useState(0);
+  const navigate  = useNavigate();
+  const location  = useLocation();
+  const [dayIdx,     setDayIdx]     = useState(location.state?.dayIdx  ?? 0);
+  const [mealIdx,    setMealIdx]    = useState(location.state?.mealIdx ?? 0);
   const [showRecipe, setShowRecipe] = useState(false);
 
   const day  = DAYS[dayIdx];

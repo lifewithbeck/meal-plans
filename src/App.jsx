@@ -6,6 +6,7 @@ import S11S12 from "./S11S12.jsx";
 import S12 from "./S12.jsx";
 import W15 from "./W15.jsx";
 import W15b from "./W15b.jsx";
+import Search from "./Search.jsx";
 
 // ─── PIN ──────────────────────────────────────────────────────────────────────
 const CORRECT_PIN = "6969";
@@ -113,6 +114,7 @@ export default function App() {
         <Route path="/s12"     element={<S12 />}    />
         <Route path="/w15"     element={<W15 />}    />
         <Route path="/w15b"    element={<W15b />}   />
+        <Route path="/search"  element={<Search />} />
       </Routes>
     </BrowserRouter>
   );
